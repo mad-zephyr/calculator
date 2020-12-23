@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="css/style.min.css">
     <title>Credit Calculator</title>
 </head>
@@ -38,11 +39,20 @@
                         </div>
                         <div class="calculator_block_right_range">
                             <span>
-                                <label for="range">Сумма</label> 
-                                <div class="quntity">14000 mdl</div>
+                                <label for="priceRange">Сумма</label> 
+                                <input class="quntity" id="priceRange" readonly >
                             </span>
-                            <input type="range" name="name" id="range">
-
+                            <div id="price-range" class="slider"></div>
+                        </div>
+                        <div class="calculator_block_right_input">
+                            <label for="name" >Срок кредитования</label>
+                            <span class="clc_short" ></span>
+                            <select id="name" name="12 мес">
+                                <option value="6">6 мес</option>
+                                <option value="12">12 мес</option>
+                                <option value="24">24 мес</option>
+                                <option value="36">36 мес</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -50,5 +60,8 @@
             </div>
             
         </section>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/script.js"></script>
 </body>
 </html>
