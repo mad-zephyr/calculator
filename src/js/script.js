@@ -6,10 +6,10 @@ $(function() {
         max: 70000,
         value: 1,
         slide: function( event, ui ) {
-        $( "#priceRange" ).val( ui.value );
+        $( "#priceRange" ).val(  ui.value + " mdl" );
         }
     });
-    $("#priceRange").val(  $("#price-range").slider("values", 0)+"$" + " - $" + $("#price-range").slider("values", 1));
+    $("#priceRange").val(  $("#price-range").slider("values", 0)+ " mdl");
 } );
 
 // $(function() {
