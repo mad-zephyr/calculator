@@ -1,4 +1,5 @@
 $(function() {
+<<<<<<< HEAD
 	$("#price-range").slider({
 		range: "max",
 		min: 1000,
@@ -9,6 +10,18 @@ $(function() {
 		}
 	});
 	$("#priceRange").val(  $("#price-range").slider("values", 0)+ " mdl");
+=======
+    $("#price-range").slider({
+        range: "max",
+        min: 1000,
+        max: 70000,
+        value: 1,
+        slide: function( event, ui ) {
+        $( "#priceRange" ).val(  ui.value + " mdl" );
+        }
+    });
+    $("#priceRange").val(  $("#price-range").slider("values", 0)+ " mdl");
+>>>>>>> refs/remotes/origin/master
 } );
 
 let $calculator = document.querySelector('.calculator'),
