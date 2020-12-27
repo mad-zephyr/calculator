@@ -1,16 +1,4 @@
 $(function() {
-<<<<<<< HEAD
-	$("#price-range").slider({
-		range: "max",
-		min: 1000,
-		max: 70000,
-		value: 30000,
-		slide: function( event, ui ) {
-		$( "#priceRange" ).val(  ui.value + " mdl" );
-		}
-	});
-	$("#priceRange").val(  $("#price-range").slider("values", 0)+ " mdl");
-=======
     $("#price-range").slider({
         range: "max",
         min: 1000,
@@ -21,7 +9,6 @@ $(function() {
         }
     });
     $("#priceRange").val(  $("#price-range").slider("values", 0)+ " mdl");
->>>>>>> refs/remotes/origin/master
 } );
 
 let $calculator = document.querySelector('.calculator'),
@@ -54,7 +41,8 @@ function createCreditUserInfo(){
 		createUser();
 		getCreditSum();
 		getCreditTime();
-		
+		createCreditGiver();
+		createCreditBlock();
 	} 
 }
 
@@ -156,10 +144,37 @@ function updateTime(){
 }
 
 function createCreditGiver(){
-	let $pay = createElement('section');
+	let $pay = document.createElement('section');
+		$easeCredit = document.createElement('div'),
+		$iuteCredit = document.createElement('div'),
+		$payWrapper = document.createElement('div'),
+		$microInvest = document.createElement('div');
 
-	$body.insertAdjacentElement('beforeend', '$pay');
+	$dataCredit.insertAdjacentElement('afterend', $pay);
+	$pay.insertAdjacentElement('afterbegin', $payWrapper);
+	$payWrapper.setAttribute('class', 'pay_wrapper');
+
+	$payWrapper.insertAdjacentElement('afterbegin', $microInvest);
+	$payWrapper.insertAdjacentElement('afterbegin', $iuteCredit);
+	$payWrapper.insertAdjacentElement('afterbegin', $easeCredit);
+	
 	$pay.setAttribute('class', 'pay');
+	$easeCredit.setAttribute('class', 'pay_name_active');
+	$easeCredit.textContent = 'Easy Credit';
 
+	$iuteCredit.setAttribute('class', 'pay_name_inactive');
+	$iuteCredit.textContent = 'Iute Credit';
+
+	$microInvest.setAttribute('class', 'pay_name_inactive');
+	$microInvest.textContent = 'Micro Invest Credit';
+
+}
+
+function createCreditBlock(){
+	let $payBlock = document.createElement('div'),
+		$pay = document.querySelector('.pay');
+	
+	$pay.insertAdjacentElement('beforeend', $payBlock);
+	$payBlock.setAttribute('class', 'pay_block');
 
 }
