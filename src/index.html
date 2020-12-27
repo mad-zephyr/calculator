@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="css/style.min.css">
+    <link rel="icon"  type="image/png"  href="icons/favicon.ico" />
     <title>Credit Calculator</title>
 </head>
 <body>
@@ -22,18 +23,18 @@
                             
                         </p>
                         <p class="calculator_block_left_checkbox">
-                            <input type="checkbox" name="EasyCredit" id="EasyCredit">
+                            <input type="checkbox" name="EasyCredit" id="IuteCredit">
                             Iute Credit
                         </p>
                         <p class="calculator_block_left_checkbox">
-                            <input type="checkbox" name="EasyCredit" id="EasyCredit">
+                            <input type="checkbox" name="EasyCredit" id="MicroInvestCredit">
                             Micro Invest Credit
                         </p>
                     </div>
                     <div class="calculator_block_right">
                         <h2 class="calculator_block_right_title">Ваши данные</h2>
                         <div class="calculator_block_right_input">
-                            <label for="name"  >Фамилия Имя Отчество</label>
+                            <label for="name" >Фамилия Имя Отчество</label>
                             <span></span>
                             <input type="text" name="name" id="name">
                         </div>
@@ -45,9 +46,9 @@
                             <div id="price-range" class="slider"></div>
                         </div>
                         <div class="calculator_block_right_input">
-                            <label for="name" >Срок кредитования</label>
+                            <label for="time" >Срок кредитования</label>
                             <span class="clc_short" ></span>
-                            <select id="name" name="12 мес">
+                            <select id="time" name="12 мес" value = '12'>
                                 <option value="6">6 мес</option>
                                 <option value="12">12 мес</option>
                                 <option value="24">24 мес</option>
@@ -58,6 +59,12 @@
                 </div>
                 <div class="button">Расчитать</div>
             </div>
+            
+        </section>
+        <section class="dataCredit">
+
+        </section>
+        <section class="pay">
             
         </section>
         <script src="js/jquery.min.js"></script>
