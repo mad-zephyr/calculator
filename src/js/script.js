@@ -19,6 +19,8 @@ let $calculator = document.querySelector('.calculator'),
 	nameLabel = document.querySelector('.calculator_block_right_input label'),
 	$time = document.querySelector('#time'),
 	$pay = document.querySelector('.pay'),
+	$payBlock = document.querySelector('.pay_block'),
+	$payWrapper = document.querySelector('.pay_wrapper'),
 	$body = document.querySelector('body');
 
 $btn.addEventListener('click', createCreditUserInfo);
@@ -43,6 +45,8 @@ function createCreditUserInfo(){
 		getCreditTime();
 		createCreditGiver();
 		createCreditBlock();
+		createCreditBlockTitles();
+		getTabListener();
 	} 
 }
 
@@ -144,7 +148,7 @@ function updateTime(){
 }
 
 function createCreditGiver(){
-	let $pay = document.createElement('section');
+	let $pay = document.createElement('section'),
 		$easeCredit = document.createElement('div'),
 		$iuteCredit = document.createElement('div'),
 		$payWrapper = document.createElement('div'),
@@ -153,6 +157,8 @@ function createCreditGiver(){
 	$dataCredit.insertAdjacentElement('afterend', $pay);
 	$pay.insertAdjacentElement('afterbegin', $payWrapper);
 	$payWrapper.setAttribute('class', 'pay_wrapper');
+	$payWrapper.setAttribute('id', 'pay_wrapper');
+
 
 	$payWrapper.insertAdjacentElement('afterbegin', $microInvest);
 	$payWrapper.insertAdjacentElement('afterbegin', $iuteCredit);
@@ -177,4 +183,57 @@ function createCreditBlock(){
 	$pay.insertAdjacentElement('beforeend', $payBlock);
 	$payBlock.setAttribute('class', 'pay_block');
 
+}
+
+function createCreditBlockTitles(){
+	let $payBlockWrapper = document.createElement('div'), 
+		$payBlock = document.querySelector('.pay_block');
+
+	$payBlock.insertAdjacentElement('afterbegin', $payBlockWrapper);
+	$payBlockWrapper.setAttribute('class', 'pay_block_wrapper');
+
+	for ( let i = 0;  i <= 4; i++){  
+		let $payBlockWrapperTitle = document.createElement('div');
+
+			$payBlockWrapper.insertAdjacentElement('beforeend', $payBlockWrapperTitle);
+			$payBlockWrapperTitle.setAttribute('class', 'pay_block_wrapper_title');
+
+		switch (i){
+			case 0:
+				$payBlockWrapperTitle.textContent = 'Месяц';
+				break;
+			case 1:
+				$payBlockWrapperTitle.textContent = 'Месячный платеж';
+				break;
+			case 2:
+				$payBlockWrapperTitle.textContent = 'Остаток кредита';
+				break;
+			case 3:
+				$payBlockWrapperTitle.textContent = 'Плата за кредит';
+				break; 
+			case 4:
+				$payBlockWrapperTitle.textContent = 'Месячная плата';
+				break;
+		}
+	}
+}
+
+function getTabListener(){
+	document.getElementById('pay_wrapper').addEventListener('click', (event) => {
+		console.log(event.target.className);
+		let tab = document.querySelectorAll('.pay_wrapper div');
+
+		console.log(tab[i].classList);
+
+
+		if (event.target.className == "pay_name_active"){
+			event.target.classList.remove('pay_name_active');
+			event.target.classList.add('pay_name_inactive');
+			console.log('Hello');
+		} else { 
+			event.target.classList.remove('pay_name_inactive');
+			event.target.classList.add('pay_name_active');
+
+		}
+	}) 
 }
