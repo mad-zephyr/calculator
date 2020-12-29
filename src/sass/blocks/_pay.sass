@@ -25,8 +25,7 @@
         border-top: 1px solid #E8E7E7;
         border-left: 1px solid #E8E7E7;
         border-right: 1px solid #E8E7E7;
-        box-sizing: border-box;
-        // 
+        box-sizing: border-box; 
         border-radius: 10px 10px 0px 0px;
 
         font-family: Gilroy;
@@ -52,8 +51,7 @@
         height: 36px
         background: #E8E7E7;
         border: 1px solid #E8E7E7;
-        box-sizing: border-box;
-        // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+        box-sizing: border-box; 
         border-radius: 10px 10px 0px 0px;
 
         font-family: Gilroy;
@@ -64,13 +62,15 @@
         color: #000000;
         cursor: pointer
     &_block 
+        display: flex
+        flex-direction: column
+        align-items: center
         z-index: 0 
         width: 520px
         min-height: 400px
         background: #F8F8F8;
         border: 1px solid #E8E7E7; 
-        box-sizing: border-box;
-        // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+        box-sizing: border-box; 
         border-radius: 0px 0px 10px 10px;
         &_wrapper
             display: flex
@@ -99,9 +99,10 @@
                     background: #FFB800
                 &:last-of-type
                     margin-right: 15px
-
+                    width: 80px 
                 &:first-of-type
                     margin-left: 15px
+                    width: 50px 
 
 
 

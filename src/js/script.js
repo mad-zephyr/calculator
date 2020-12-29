@@ -21,6 +21,8 @@ let $calculator = document.querySelector('.calculator'),
 	$pay = document.querySelector('.pay'),
 	$payBlock = document.querySelector('.pay_block'),
 	$payWrapper = document.querySelector('.pay_wrapper'),
+	creditValue = document.querySelector('#priceRange'),
+	creditSum = document.querySelector('.credit_block_name'),
 	$body = document.querySelector('body');
 
 $btn.addEventListener('click', createCreditUserInfo);
@@ -47,6 +49,7 @@ function createCreditUserInfo(){
 		createCreditBlock();
 		createCreditBlockTitles();
 		getTabListener();
+		createMonth();
 	} 
 }
 
@@ -134,12 +137,8 @@ function getCreditTime(){
 
 }
  
-function updateCreditSum(){
-	let creditValue = document.querySelector('#priceRange'),
-		creditSum = document.querySelector('.credit_block_name');
-
+function updateCreditSum(){ 
 	creditSum.textContent = creditValue.value;
-
 }
  
 function updateTime(){ 
@@ -212,28 +211,57 @@ function createCreditBlockTitles(){
 				$payBlockWrapperTitle.textContent = 'Плата за кредит';
 				break; 
 			case 4:
-				$payBlockWrapperTitle.textContent = 'Месячная плата';
+				$payBlockWrapperTitle.textContent = 'Итого \r\n в месяц';
 				break;
 		}
 	}
 }
 
 function getTabListener(){
-	document.getElementById('pay_wrapper').addEventListener('click', (event) => {
-		console.log(event.target.className);
+	document.getElementById('pay_wrapper').addEventListener('click', (event) => { 
 		let tab = document.querySelectorAll('.pay_wrapper div');
-
-		console.log(tab[i].classList);
-
-
-		if (event.target.className == "pay_name_active"){
-			event.target.classList.remove('pay_name_active');
-			event.target.classList.add('pay_name_inactive');
-			console.log('Hello');
-		} else { 
-			event.target.classList.remove('pay_name_inactive');
+ 
+		if (event.target.className != "pay_name_active"){
+			console.log('Inactive'); 
+			for (let i = 0; i < tab.length; i++){
+				if(tab[i].classList.contains('pay_name_active')){
+				   tab[i].classList.remove('pay_name_active');
+				   tab[i].classList.add('pay_name_inactive');
+				}
+			}
 			event.target.classList.add('pay_name_active');
+			event.target.classList.remove('pay_name_inactive');
+		}  
+	});
+}
 
-		}
-	}) 
+// function calculationCredit(){ 
+
+// 	let val = creditValue.value,
+// 		t = $time.value;
+	
+// 	for (let i = 0; i <= $time.value; i++){
+
+// 	}
+
+// }
+
+function createMonth(){
+	for (let k = 0; k <= $time.value; k++){
+
+		let creditBlock = document.querySelector('.pay_block'),
+			month = document.createElement('div');
+
+			creditBlock.insertAdjacentElement('beforeend', month);
+			month.setAttribute('class', 'month');
+
+			for(let i = 0; i<5; i++){ 
+				let  monthBlock = document.createElement('div'); 
+
+					 month.insertAdjacentElement('beforeend', monthBlock);
+					 monthBlock.setAttribute('class', 'month_block');
+
+					 monthBlock.textContent = 'test';
+			} 
+	} 
 }
